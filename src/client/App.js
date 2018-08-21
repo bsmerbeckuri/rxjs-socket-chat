@@ -29,12 +29,15 @@ class App extends Component {
 
   render() {
       return (
-          <div className="App">
-              <header className="App-header">
-                  <img src={ReactImage} className="App-logo" alt="logo" />
-                  <h1 className="App-title">Welcome to React</h1>
-              </header>
-              <p className="App-intro">{this.state.response}</p>
+          <div>
+              <ul className="message-list/"/>
+              <div className="action-bar">
+                  <label className="user-select-label">
+                      <select name="" id="" className="user-select"/>
+                  </label>
+                  <input autoComplete="off" className="message-input"/>
+                  <button className="send-btn">Send</button>
+              </div>
           </div>
       );
   }
