@@ -3,31 +3,40 @@ import React, { Component } from 'react';
 import './app.css';
 import ReactImage from './react.png';
 
-export default class App extends Component {
+class App extends Component {
+
   constructor(props) {
     super(props);
-    this.state = { username: null };
+      this.state = {
+          response: ''
+      };
   }
 
   componentDidMount() {
-    fetch('/api/getUsername')
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
+        this.callApi()
+            .then(res => this.setState({ response: res.express }))
+            .catch(err => console.log(err));
   }
 
+  callApi = async () => {
+      const response = await fetch('/api/hello');
+      const body = await response.json();
+
+      if (response.status !== 200) throw Error(body.message);
+
+      return body;
+  };
+
   render() {
-    return (
-      <div>
-        {this.state.username ? (
-          <h1>
-Hello
-            {this.state.username}
-          </h1>
-        ) : (
-          <h1>Loading.. please wait!</h1>
-        )}
-        <img src={ReactImage} alt="react" />
-      </div>
-    );
+      return (
+          <div className="App">
+              <header className="App-header">
+                  <img src={ReactImage} className="App-logo" alt="logo" />
+                  <h1 className="App-title">Welcome to React</h1>
+              </header>
+              <p className="App-intro">{this.state.response}</p>
+          </div>
+      );
   }
 }
+export default App;
