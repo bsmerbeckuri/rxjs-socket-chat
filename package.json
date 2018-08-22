@@ -10,15 +10,16 @@
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "watch": "concurrently --names \"webpack, stylus\" --prefix name \"yarn run dev\" \"yarn run styles:watch\"",
-    "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
-    "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css"
+    "styles": "stylus -u autoprefixer-stylus ./src/client/css/style.styl -o ./src/client/css/style.css",
+    "styles:watch": "stylus -u autoprefixer-stylus -w ./src/client/css/style.styl -o ./src/client/css/style.css"
   },
   "author": "Sandeep Raveesh",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "rxjs": "^6.2.2"
   },
   "devDependencies": {
     "autoprefixer-stylus": "^0.14.0",
