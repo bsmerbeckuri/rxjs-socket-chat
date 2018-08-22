@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 body {
   font-size: 14px;
@@ -23,8 +24,12 @@ body {
   color: #aaa;
 }
 .action-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -42,7 +47,8 @@ body {
   position: absolute;
   top: 50%;
   right: 10px;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   width: 0;
   height: 0;
   border-top: 6px solid #000;
@@ -64,6 +70,7 @@ body {
   outline: none;
   font-size: 14px;
   cursor: pointer;
+  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
 .user-select:hover {
@@ -84,6 +91,7 @@ body {
   border: none;
   font-size: 14px;
   cursor: pointer;
+  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
 .send-btn:hover {
